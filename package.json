@@ -1,0 +1,42 @@
+{
+  "name": "nexus-stitching-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start:domain": "cd services/domain && yarn dev",
+    "start:score": "cd services/score && yarn dev",
+    "start:bff": "cd services/bff && yarn dev",
+    "start:gateway": "ts-node-dev --no-notify --respawn src/gateway.ts",
+    "start": "concurrently \"yarn:start:*\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nayaabkhan/nexus-stitching-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nayaabkhan/nexus-stitching-example/issues"
+  },
+  "homepage": "https://github.com/nayaabkhan/nexus-stitching-example#readme",
+  "dependencies": {
+    "@graphql-tools/stitch": "^7.5.1",
+    "@graphql-tools/wrap": "^7.0.5",
+    "apollo-server": "^2.22.2",
+    "cross-fetch": "^3.1.4",
+    "graphql": "^15.5.0",
+    "wait-on": "^5.3.0"
+  },
+  "devDependencies": {
+    "@types/wait-on": "^5.2.0",
+    "concurrently": "^6.0.1",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.4"
+  },
+  "workspaces": [
+    "services/*"
+  ]
+}
